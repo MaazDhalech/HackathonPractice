@@ -11,7 +11,7 @@ def init_driver():
     print("Initializing ChromeDriver...")
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")  # Optional: Run Chrome in headless mode
-    driver = webdriver.Chrome(service=Service("/Users/maaz/Desktop/HackathonPractice/chromedriver"), options=options)
+    driver = webdriver.Chrome(service=Service("/usr/local/bin/chromedriver"), options=options)
     print("ChromeDriver initialized and launched")
     return driver
 
