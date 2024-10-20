@@ -1,63 +1,19 @@
-"use client"; // This line should be at the top of your file
-
 import Head from 'next/head';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import Products from './components/Products';
 
-export default function Home() {
-  const [selectedOption, setSelectedOption] = useState<string>("");
-  const router = useRouter();
-
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(event.target.value);
-  };
-
-  const handleGoClick = () => {
-    if (selectedOption === "1") {
-      router.push('/halal');
-    } else if (selectedOption === "2") {
-      router.push('/vegetarian');
-    } else if (selectedOption === "3") {
-      router.push('/vegan');
-    }
-  };
-
+const Home = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+    <div>
       <Head>
-        <title>Halaliversity</title>
+        <title>Product and Post List</title>
+        <meta name="description" content="A list of products and posts." />
       </Head>
-
-      {/* Title */}
-      <h1 className="text-5xl font-bold mb-8">BerkeleyInclusiveDining</h1>
-
-      {/* Select Menu and Button */}
-      <div className="flex items-center mb-8">
-        <select 
-          className="select select-bordered w-48" 
-          value={selectedOption} 
-          onChange={handleChange}
-        >
-          <option value="" disabled>Select an option</option>
-          <option value="1">Halal</option>
-          <option value="2">Vegetarian</option>
-          <option value="3">Vegan</option>
-        </select>
-        <button 
-          className="btn btn-primary ml-4" 
-          onClick={handleGoClick} 
-          disabled={!selectedOption} // Disable button when no option is selected
-        >
-          Go
-        </button>
-      </div>
-
-      {/* Placeholder Information */}
-      <div className="text-center">
-        <p className="text-lg">
-          PLACEHOLDER TEXT Halaliversity provides students with information about halal menu items for colleges all over the US. PLACEHOLDER TEXT
-        </p>
-      </div>
+      <main className="container mx-auto">
+        <h1 className="text-3xl font-bold text-center my-4">Product and Post List</h1>
+        <Products />
+      </main>
     </div>
   );
-}
+};
+
+export default Home;
